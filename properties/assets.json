@@ -1,0 +1,26 @@
+{
+    "main": {
+        "css": {
+            "public/build/css/main.min.css": [
+
+            ]
+        },
+        "js": {
+            "public/build/js/main.min.js": [
+
+            ]
+        }
+    },
+    "secondary": {
+        "css": {
+            "public/build/css/secondary.min.css": [
+
+            ]
+        },
+        "js": {
+            "public/build/js/secondary.min.js": [
+              
+            ]
+        }
+    }
+}
