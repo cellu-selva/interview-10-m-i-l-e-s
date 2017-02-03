@@ -1,0 +1,25 @@
+{
+  "name": "expense-tracker",
+  "homepage": "https://github.com/SelvaNathann/expense-tracker",
+  "authors": [
+    "(selvanathann <reachmeselvaa@gmail.com>)"
+  ],
+  "description": "Application for tracking individuals day todays expenses.",
+  "main": "server.js",
+  "keywords": [
+    "expense",
+    "tracker",
+    "node",
+    "express",
+    "rest",
+    "api"
+  ],
+  "license": "no licence yet",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "Application for tracking individuals day todays expenses.",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SelvaNathann/expense-tracker.git"
+  },
+  "keywords": [
+    "expense",
+    "tracker",
+    "node",
+    "express",
+    "rest",
+    "api"
+  ],
+  "author": " <reachmeselvaa@gmail.com> (selvanathann <reachmeselvaa@gmail.com>)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SelvaNathann/expense-tracker/issues"
+  },
+  "homepage": "https://github.com/SelvaNathann/expense-tracker#readme"
+}
