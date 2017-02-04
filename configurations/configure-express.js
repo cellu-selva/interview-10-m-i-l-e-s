@@ -1,15 +1,18 @@
-var express = require('express');
-var path = require('path');
-var consolidate = require('consolidate');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var assetmanager = require('assetmanager');
+var express = require('express'),
+    expressValidator = require('express-validator'),
+    path = require('path'),
+    consolidate = require('consolidate'),
+    logger = require('morgan'),
+    bodyParser = require('body-parser'),
+    assetmanager = require('assetmanager');
 
-var configureDatabase = require(path.join(__dirname, '/configure-mongo-connection.js'));
-var enviroProperties = require(path.join(__dirname, '/../properties/environment-properties.js'));
-var expressProperties = require(path.join(__dirname, '/../properties/express-properties.js'));
+var configureDatabase = require(path.join(__dirname, '/configure-mongo-connection.js')),
+    enviroProperties = require(path.join(__dirname, '/../properties/environment-properties.js')),
+    expressProperties = require(path.join(__dirname, '/../properties/express-properties.js'));
 
-var core = require('./../modules/core/server/route/core-route');
+var core = require('./../modules/core/server/route/core-route'),
+    expense = require('./../modules/expense/server/route/expense-route'),
+    category = require('./../modules/category/server/route/category-route');
 
 var app = express();
 
@@ -27,13 +30,14 @@ app.use(logger('dev'));
 //app.use(expressProperties.bodyParser);
 app.use(bodyParser.json(expressProperties.bodyParser.json));
 app.use(bodyParser.urlencoded(expressProperties.bodyParser.urlencoded));
+app.use(expressValidator());
 app.use('/bower_components', express.static(expressProperties.root + '/' + expressProperties.bowerComponents));
 //app.use('/package', express.static(config.root + '/package'));
 app.use(express.static(expressProperties.root));
 
 app.use('/', core);
-//app.use('/api/expense', expense);
-//app.use('/api/category', category);
+app.use('/api/expense', expense);
+app.use('/api/category', category);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
