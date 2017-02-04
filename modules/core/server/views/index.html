@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            <%= title %>
+        </title>
+<%= title %>
+        <!-- Loading library css files -->
+        <% assets.main.css.forEach(function(style){ %>
+            <link rel="stylesheet" type="text/css" href="<%= style %>">
+        <% }) %>
+
+                <!-- Loading custom css files -->
+        <% assets.secondary.css.forEach(function(style){ %>
+            <link rel="stylesheet" type="text/css" href="<%= style %>">
+        <% }) %>
+
+    </head>
+
+    <body ng-app="app">
+        <section ui-view></section>
+        <!-- Loading library main files -->
+        <% assets.main.js.forEach(function(script){ %>
+            <script type="text/javascript" src="<%= script %>"></script>
+        <% }) %>
+
+        <!-- Loading custom or user js files -->
+        <% assets.secondary.js.forEach(function(script){ %>
+            <script type="text/javascript" src="<%= script %>"></script>
+        <% }) %>
+    </body>
+
+</html>

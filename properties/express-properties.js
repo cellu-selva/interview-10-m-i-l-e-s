@@ -10,7 +10,7 @@ module.exports = {
     secret          : 'selvav43',
     localCache      : 'memory',
     localPretty     : 'pretty',
-    views           : 'modules/expense/server/views',
+    views           : 'modules/core/server/views',
     viewEngine      : 'html',
     bowerComponents : '/bower_components',
     bodyParser      : {
