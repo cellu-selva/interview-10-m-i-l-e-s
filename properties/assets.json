@@ -2,12 +2,31 @@
     "main": {
         "css": {
             "public/build/css/main.min.css": [
-
+              "bower_components/angular-material/angular-material.min.css",
+              "bower_components/components-font-awesome/css/font-awesome.min.css",
+              "bower_components/mdi/css/materialdesignicons.min.css",
+              "bower_components/angular-ui-grid/ui-grid.min.css",
+              "bower_components/dcjs/dc.min.css"
             ]
         },
         "js": {
             "public/build/js/main.min.js": [
-
+              "bower_components/jquery/dist/jquery.min.js",
+              "bower_components/angular/angular.js",
+              "bower_components/angular-cookies/angular-cookies.min.js",
+              "bower_components/angular-resource/angular-resource.min.js",
+              "bower_components/angular-ui-router/release/angular-ui-router.min.js",
+              "bower_components/angular-animate/angular-animate.min.js",
+              "bower_components/angular-aria/angular-aria.min.js",
+              "bower_components/angular-material/angular-material.min.js",
+              "bower_components/angular-material-icons/angular-material-icons.min.js",
+              "bower_components/angular-messages/angular-messages.min.js",
+              "bower_components/angular-ui-grid/ui-grid.min.js",
+              "bower_components/underscore/underscore-min.js",
+              "bower_components/d3/d3.min.js",
+              "bower_components/crossfilter2/crossfilter.min.js",
+              "bower_components/dcjs/dc.min.js",
+              "bower_components/d3-tip/index.js"
             ]
         }
     },
@@ -19,7 +38,13 @@
         },
         "js": {
             "public/build/js/secondary.min.js": [
-              
+              "modules/expense/client/app.js",
+              "modules/core/client/core-route/core-route.js",
+              "modules/expense/client/controller/expense-controller.js",
+              "modules/expense/client/directive/directive.js",
+              "modules/expense/client/service/expense-service.js",
+              "modules/category/client/service/category-service.js",
+              "modules/utils/client/data-service/data-service.js"
             ]
         }
     }

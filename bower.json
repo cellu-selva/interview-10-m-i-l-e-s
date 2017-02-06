@@ -21,5 +21,21 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "^2.0.3",
+    "angular": "latest",
+    "angular-resource": "latest",
+    "underscore": "^1.5.2",
+    "angular-route": "latest",
+    "bootstrap": "latest",
+    "angular-bootstrap": " ^0.13.3",
+    "angular-ui-router": "0.2.18",
+    "angular-material": "~0.11.4",
+    "angular-messages": "~1.4.7",
+    "angular-material-icons": "~0.6.0",
+    "angular-material-data-table": "~0.9.6",
+    "dcjs": "master",
+    "angular-ui-grid": "^4.0.2"
+  }
 }
