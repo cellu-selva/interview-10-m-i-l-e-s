@@ -1,0 +1,20 @@
+<div layout="row" class="row" style="margin-top:20px;" ng-init="expenseCtrl.getAllExpenses()">
+ <div class="col-lg-12" layout-margin>
+   <h2 id="nav-tabs">Expense Tracker</h2>
+   <div class="bs-component" layout-margin>
+     <ul class="nav nav-tabs">
+       <li class="active"><a href="#Grid" data-toggle="tab">Grid</a></li>
+       <li><a href="#Stats" data-toggle="tab">Stats</a></li>
+       <button type="button" class="btn btn-info btn-sm pull-right" ng-click="expenseCtrl.showAddExpenseDialog($event)">Add Expense</button>
+     </ul>
+     <div id="myTabContent" class="tab-content">
+       <div class="tab-pane fade active in" id="Grid">
+         <grid></grid>
+       </div>
+       <div class="tab-pane fade" id="Stats">
+         <chart></chart>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>

@@ -6,7 +6,8 @@ expenseSchema = require('./../schema/expense-schema');
 
 module.exports = {
   saveOrUpdateExpense: function (req, res) {
-    var expense = req.body;
+    console.log(req.body);
+    var expense = new expenseSchema(req.body);
     expense.save(function(err, savedExpense){
       if(err) {
         return res.status(400)
@@ -14,10 +15,12 @@ module.exports = {
              error: 'Error saving or updating expense data'
            });
       }
-      res.status(200)
-         .json({
-           data: savedExpense
-         });
+      expenseSchema.populate(savedExpense, 'category', function(err, savedExpensedata) {
+        res.status(200)
+           .json({
+             data: savedExpensedata
+           });
+      });
     });
   },
   getExpenseById:  function (req, res) {
@@ -45,7 +48,7 @@ module.exports = {
     });
   },
   getAllExpenses: function (req, res) {
-    expenseSchema.find({}, function(err, expenses){
+    expenseSchema.find({}).populate('category').exec(function(err, expenses){
       if(err) {
         return res.status(400)
            .json({

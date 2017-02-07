@@ -9,7 +9,7 @@ expenseSchema = new Schema({
   amount: {
     type: Number
   },
-  note: {
+  notes: {
     type: String
   },
   category: {

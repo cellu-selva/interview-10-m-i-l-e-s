@@ -7,7 +7,8 @@ category = require('./../schema/category-schema');
 module.exports = {
 
     saveOrUpdateCategory: function (req, res) {
-      var Category = req.body;
+      console.log(req.body);
+      var Category = new category(req.body);
       Category.save(function(err, savedCategory){
         if(err) {
           return res.status(400)
