@@ -17,32 +17,33 @@
         <div flex="100" layout="column" class="expense-dialog-container">
             <md-input-container class="md-icon-float md-block">
               <label style="margin-left:0">Title</label>
-              <input type="text" required name="title" maxlength="30" ng-model="expenseCtrl.expense.title">
-              <div ng-messages=" expenseForm.title.$error">
-                <div ng-message="required">Title should not be empty.</div>
+              <input type="text" name="title" maxlength="30" ng-model="expenseCtrl.expense.title" required>
+              <div ng-messages="expenseForm.title.$error ">
+                <div ng-message="required">Title cannot not be empty.</div>
               </div>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
               <label style="margin-left:0">Amount</label>
-              <input type="number" required name="amount" maxlength="6" ng-model="expenseCtrl.expense.amount">
+              <input type="number" required name="amount" maxlength="6" ng-min="0" ng-model="expenseCtrl.expense.amount">
               <div ng-messages="expenseForm.amount.$error">
-                <div ng-message="required">Amount should be valid.</div>
+                <div ng-message="required">Amount cannot be empty.</div>
               </div>
             </md-input-container>
             <md-input-container class="md-block">
               <label style="margin-left:0">Notes</label>
-              <input name="notes" maxlength="51" ng-model="expenseCtrl.expense.notes" md-maxlength="50"/>
-              <div ng-messages="expenseForm.notes.$error" role="alert" multiple>
+              <input name="notes" maxlength="71" ng-model="expenseCtrl.expense.notes" md-maxlength="70"/>
+              <div ng-messages="expenseForm.notes.$error" multiple>
                 <div ng-message="required">Notes should not be more than 50 characters.</div>
               </div>
             </md-input-container>
             <md-autocomplete
               ng-disabled="expenseCtrl.isDisabled"
               md-no-cache="expenseCtrl.noCache"
-              md-selected-item="expenseCtrl.selectedItem"
+              md-selected-item="expenseCtrl.expense.category.name"
               md-search-text-change="expenseCtrl.searchTextChange(expenseCtrl.searchText)"
               md-search-text="expenseCtrl.searchText"
-              md-selected-item-change="expenseCtrl.selectedItemChange(category)"
+              md-selected-item-change="!expenseCtrl.isSelectedItemChangeTriggered && expenseCtrl.selectedItemChange(category)"
+              ng-model="expenseCtrl.expense.category.name"
               md-items="category in expenseCtrl.querySearch(expenseCtrl.searchText)"
               md-item-text="category.display"
               md-min-length="0"

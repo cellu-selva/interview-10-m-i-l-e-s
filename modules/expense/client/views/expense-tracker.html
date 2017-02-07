@@ -1,28 +1,20 @@
-<div class="" flex="100" layout-margin ng-init="expenseCtrl.getAllExpenses()">
-  <md-button class="md-raised" ng-click="expenseCtrl.showAddExpenseDialog($event)" style="float: right; background: #eee">
-    <i class="icon-plus"></i><span> Add Expense </span>
-  </md-button>
-</div>
-<div ng-cloak>
-  <md-content>
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="one">
-        <md-content class="md-padding">
-          <grid style="min-height: 400px" flex="100"></grid>
-        </md-content>
-      </md-tab>
-      <md-tab label="two" ng-click="expenseCtrl.renderChart()">
-        <md-content class="md-padding">
-          <pie-chart style="min-height: 400px" flex="50" flex-lt-sm="100"></pie-chart>
-          <bar-chart style="min-height: 400px" flex="50" flex-lt-sm="100"></bar-chart>
-        </md-content>
-      </md-tab>
-      <md-tab label="three">
-        <md-content class="md-padding">
-          <h1 class="md-display-2">Tab Three</h1>
-          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
+<div layout="row" class="row" style="margin-top:20px;" ng-init="expenseCtrl.getAllExpenses()">
+ <div class="col-lg-12" layout-margin>
+   <h2 id="nav-tabs">Expense Tracker</h2>
+   <div class="bs-component" layout-margin>
+     <ul class="nav nav-tabs">
+       <li class="active"><a href="#Grid" data-toggle="tab">Grid</a></li>
+       <li><a href="#Stats" data-toggle="tab">Stats</a></li>
+       <button type="button" class="btn btn-info btn-sm pull-right" ng-click="expenseCtrl.showAddExpenseDialog($event)">Add Expense</button>
+     </ul>
+     <div id="myTabContent" class="tab-content">
+       <div class="tab-pane fade active in" id="Grid">
+         <grid></grid>
+       </div>
+       <div class="tab-pane fade" id="Stats">
+         <chart></chart>
+       </div>
+     </div>
+   </div>
+ </div>
 </div>

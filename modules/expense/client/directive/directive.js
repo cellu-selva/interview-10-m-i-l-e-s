@@ -1,26 +1,12 @@
 angular.module('expenseTracker')
-       .directive('pieChart', pieChart);
+       .directive('chart', chart);
 
-pieChart.$inject = [];
+chart.$inject = [];
 
-function pieChart () {
+function chart () {
   return {
     restrict: 'E',
-    templateUrl: 'modules/expense/client/views/partials/pie-chart.html',
-    scope: '@',
-    transclude: true
-  }
-}
-
-angular.module('expenseTracker')
-       .directive('barchart', barchart);
-
-barchart.$inject = [];
-
-function barchart () {
-  return {
-    restrict: 'E',
-    templateUrl: 'modules/expense/client/views/partials/bar-chart.html',
+    templateUrl: 'modules/expense/client/views/partials/chart.html',
     scope: '@',
     transclude: true
   }
@@ -36,6 +22,21 @@ function grid () {
   return {
     restrict: 'E',
     templateUrl: 'modules/expense/client/views/partials/grid.html',
+    scope: '@',
+    transclude: true
+  }
+}
+
+
+angular.module('expenseTracker')
+       .directive('headerCust', headerCust);
+
+headerCust.$inject = [];
+
+function headerCust () {
+  return {
+    restrict: 'E',
+    templateUrl: 'modules/core/server/views/includes/header.html',
     scope: '@',
     transclude: true
   }

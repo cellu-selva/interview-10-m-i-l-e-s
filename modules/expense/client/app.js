@@ -1,1 +1,1 @@
-angular.module('expenseTracker', ['ui.router', 'ngResource', 'ngMaterial', 'ngMessages', 'ui.grid']);
+angular.module('expenseTracker', ['ui.router', 'ngResource', 'ngMaterial', 'ngMessages', 'ui.grid', 'bsTable']);

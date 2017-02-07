@@ -24,8 +24,8 @@
   ],
   "dependencies": {
     "jquery": "^2.0.3",
-    "angular": "latest",
-    "angular-resource": "latest",
+    "angular": "1.5.8",
+    "angular-resource": "1.5.8",
     "underscore": "^1.5.2",
     "angular-route": "latest",
     "bootstrap": "latest",
@@ -36,6 +36,10 @@
     "angular-material-icons": "~0.6.0",
     "angular-material-data-table": "~0.9.6",
     "dcjs": "master",
-    "angular-ui-grid": "^4.0.2"
+    "angular-ui-grid": "^4.0.2",
+    "bootswatch-dist": "3.3.0-yeti",
+    "bs-table": "https://github.com/janholinka/bs-table.git",
+    "angular-nvd3": "^1.0.9",
+    "d3-tip": "^0.7.1"
   }
 }

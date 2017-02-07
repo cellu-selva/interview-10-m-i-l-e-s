@@ -5,6 +5,7 @@ dataService.$inject = [];
 
 function dataService () {
   var self = this;
+  self.expense = {};
   self.expenses = [];
   self.categories = [];
   self.formattedExpenses = [];
