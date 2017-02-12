@@ -9,7 +9,7 @@ expenseSchema = new Schema({
   amount: {
     type: Number
   },
-  note: {
+  notes: {
     type: String
   },
   category: {
@@ -27,6 +27,10 @@ expenseSchema = new Schema({
   },
   expenseMadeAt: {
     type: Date
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false
   }
 });
 

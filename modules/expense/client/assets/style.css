@@ -1,0 +1,51 @@
+.table th:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.table .action-column{
+    width: 230px;
+}
+.table .action-column:hover{
+    text-decoration: none;
+    cursor: default;
+}
+.table tfoot .pagination{
+    float: right;
+    margin: 0;
+    margin-right: 40px;
+}
+.table tfoot .pagination li{
+    cursor: pointer;
+}
+.table tfoot select{
+    width: 90px;
+    float: right;
+    margin-right: 8px;
+}
+md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active,
+ md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused,
+ md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active,
+ md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused:hover {
+  color: #000
+}
+.action-column .btn {
+  width: 65px ;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  background-color: #26a5ca;
+}
+/*body > div.d3-tip.n{
+    background-color: #31B0D5 !important;
+    color: #000000 !important;
+}*/
+
+.m-l-15{
+    margin-left: 15px;
+}
+.md-datepicker-calendar-pane{
+    background-color: #31B0D5;
+    opacity: 0.84;
+}
+.md-toolbar-tools {
+    background-color: #31B0D5;
+}

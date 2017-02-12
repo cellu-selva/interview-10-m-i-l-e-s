@@ -12,6 +12,10 @@ categorySchema = new Schema({
   },
   createdAt: {
     type: Date
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false
   }
 });
 

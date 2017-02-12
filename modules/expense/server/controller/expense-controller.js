@@ -5,20 +5,45 @@ expenseSchema = require('./../schema/expense-schema');
 
 
 module.exports = {
-  saveOrUpdateExpense: function (req, res) {
-    var expense = req.body;
+  saveExpense: function (req, res) {
+    console.log(req.body, '---------------------');
+    var expense = new expenseSchema(req.body);
     expense.save(function(err, savedExpense){
       if(err) {
         return res.status(400)
            .json({
-             error: 'Error saving or updating expense data'
+             error: 'Error saving or updating expense data',
+             err: err
            });
       }
-      res.status(200)
-         .json({
-           data: savedExpense
-         });
+      expenseSchema.populate(savedExpense, 'category', function(err, savedExpensedata) {
+        res.status(200)
+           .json({
+             data: savedExpensedata
+           });
+      });
     });
+  },
+  updateExpense: function (req, res) {
+    console.log(req.body);
+    var expense = new expenseSchema(req.body);
+    expense.init({}, function(err) {
+        expense.save(function(err, savedExpense){
+          if(err) {
+            return res.status(400)
+               .json({
+                 error: 'Error saving or updating expense data',
+                 err: err
+               });
+          }
+          expenseSchema.populate(savedExpense, 'category', function(err, savedExpensedata) {
+            res.status(200)
+               .json({
+                 data: savedExpensedata
+               });
+          });
+        });
+    });    
   },
   getExpenseById:  function (req, res) {
     req.assert('expenseId', '_id required').notEmpty();
@@ -29,7 +54,8 @@ module.exports = {
          });
     });
     expenseSchema.find({
-      '_id':  req.params.expenseId
+      '_id':  req.params.expenseId,
+      'isDeleted': false
     }, function(err, expensessss){
       console.log(err, expensessss);
       if(err) {
@@ -45,7 +71,9 @@ module.exports = {
     });
   },
   getAllExpenses: function (req, res) {
-    expenseSchema.find({}, function(err, expenses){
+    expenseSchema.find({
+      isDeleted: false
+    }).populate('category').exec(function(err, expenses){
       if(err) {
         return res.status(400)
            .json({
@@ -88,6 +116,7 @@ module.exports = {
   getExpenseDataForStats: function (req, res) {
     req.assert('fromDate', 'fromDate required').notEmpty();
     req.assert('toDate', 'toDate required').notEmpty();
+    console.log(req.query)
     req.getValidationResult().then(function(result) {}, function error(result) {
         return res.status(400)
          .json({
@@ -95,11 +124,12 @@ module.exports = {
          });
     });
     expenseSchema.find({
+      'isDeleted': false, 
       'createdAt': {
-        '$gte': new Date(req.body.fromDate),
-        '$lte': new Date(req.body.toDate)
+        '$gte': new Date(req.query.startDate),
+        '$lte': new Date(req.query.endDate)
       }
-    }, function(err, statsData){
+    }).populate('category').exec(function(err, statsData){
       if(err) {
         return res.status(400)
            .json({

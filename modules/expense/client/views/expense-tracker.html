@@ -1,0 +1,23 @@
+<div layout="row" class="row" style="margin-top:20px;" ng-init="expenseCtrl.getAllExpenses()">
+ <div class="col-lg-12" layout-margin>
+   <h2 id="nav-tabs">Expense Tracker</h2>
+   <div class="bs-component" layout-margin>
+     <ul class="nav nav-tabs">
+       <li class="active"><a href="#Grid" data-toggle="tab" ng-click="expenseCtrl.setActiveTab('grid')">Grid</a></li>
+       <li><a href="#Stats" data-toggle="tab" ng-click="expenseCtrl.setActiveTab('chart')">Stats</a></li>
+       <button type="button" class="btn btn-info btn-sm pull-right m-l-15" ng-click="expenseCtrl.showAddExpenseDialog($event)">Add Expense</button>
+       <button type="button" ng-show="expenseCtrl.currentTab !== 'grid'" class="btn btn-info btn-sm pull-right m-l-15" ng-click="expenseCtrl.renderChart()">Submit </button>
+       <li ng-show="expenseCtrl.currentTab !== 'grid'"class="pull-right" ng-show=""><md-datepicker ng-model="expenseCtrl.toDate" md-placeholder="End date" md-open-on-focus></md-datepicker></li>
+       <li ng-show="expenseCtrl.currentTab !== 'grid'" class="pull-right"><md-datepicker ng-model="expenseCtrl.fromDate" md-placeholder="Start date" md-open-on-focus></md-datepicker></li>     
+     </ul>
+     <div id="myTabContent" class="tab-content" >
+       <div class="tab-pane fade active in" id="Grid">
+         <grid></grid>
+       </div>
+       <div class="tab-pane fade" id="Stats" >
+         <chart></chart>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>

@@ -6,10 +6,10 @@ module.exports = (function(){
   var router = express.Router();
 
   router.get('/:expenseId', expenseController.getExpenseById)
-        .put('/:expenseId', expenseController.saveOrUpdateExpense)
+        .put('/:expenseId', expenseController.updateExpense)
         .delete('/:expenseId', expenseController.deleteExpense);
 
-  router.post('/', expenseController.saveOrUpdateExpense)
+  router.post('/', expenseController.saveExpense)
         .get('/', expenseController.getAllExpenses);
 
   router.get('/stats/chart', expenseController.getExpenseDataForStats);
